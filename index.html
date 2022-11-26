@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>On-line Grocery Store</title>
+</head>
+<style type="text/css">    
+.left-hand { 
+    grid-area: leftHand;
+    background-color: #50b6e9; 
+}
+
+.top-right { 
+    grid-area: topRight;
+    background-color: #66CCFF;
+ }
+.bottom-right { 
+    grid-area: bottomRight;
+    background-color: #1ca1e4;
+ }
+
+.grid-container {
+    display: grid;
+    grid-template-areas:
+    'leftHand leftHand topRight topRight topRight topRight'
+    'leftHand leftHand bottomRight bottomRight bottomRight bottomRight';
+    grid-gap: 0px;
+    padding: 10px;
+    height: 919px;
+    background-color: #3dbbfa;
+    opacity:0.96;
+    filter:alpha(opacity=96);
+}
+
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+.grid-container > div {
+    text-align: center;
+}
+
+.logo-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.logo{
+    color: rgb(3, 3, 3);
+    font-size: 60px;
+    font-weight: 60px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    line-height: 60px;
+}
+
+.logo span{
+    font-weight: 60px;
+}
+
+body {
+    font-family:sans-serif;
+    background-image: url(backGroundPic.jpg);
+    background-position: relative;
+    width: 100%;
+    height: inherit;
+    background-repeat: no-repeat top center / cover;
+    padding: 0px;
+}
+
+.nav-btn {
+    height: 70px;
+    background-color: #99CCFF;
+}
+
+.nav-btn a {
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.nav-links {
+    float: left;
+    position: relative;
+}
+
+.nav-links .nav-link {
+    font-size: 27px;    
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+.nav-btn a:hover, .nav-links:hover .nav-link {
+    background-color: #0099CC;
+}
+
+.dropdown-first {
+    font-size: 20px; 
+    cursor: pointer;
+    display: none;
+    position: absolute;
+    background-color: #f8f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px #333333;
+}
+
+.dropdown-second {
+    cursor: pointer;
+    display: none;
+    position: absolute;
+    font-size: 18px;
+    left: 160px;
+    top: 0px;
+    min-width: 160px;
+    background-color: #f8f1f1;
+    box-shadow: 0px 8px 16px 0px #333333;
+}
+
+.nav-links:hover .dropdown-first, #node:hover > .dropdown-second {
+    display: block;
+}
+
+.dropdown-first .dropdown-link {
+    color: black;
+    padding: 12px 16px;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-first .dropdown-link:hover, .dropdown-second a:hover {
+    background-color: #0066CC;
+}
+
+.container {
+    max-width: 800px;
+    height: 800px;
+    background-color: white;
+    margin: 10px auto 0 auto;
+}
+
+.product-details-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+</style>
+    <head>
+        <script type="text/javascript" src="script.js"></script>
+    </head>
+    <body>        
+        <div class="logo-container">
+            <h1 class="logo">On-line Grocery Store</h1>
+        </div>        
+        <div class="grid-container">
+            <div class="leftHand">
+                <div class="nav-btn">                    
+                    <div class="nav-links">
+                        <div class="nav-link">Frozen Food</div>
+                        <div class="dropdown-first">
+                            <div id="node" class="dropdown-link">Sea Food
+                                <div class="dropdown-second" style="top: 0px;">
+                                <div class="dropdown-link" onclick="productDetail(1001)">Fish Fingers(1000 gram)</div>
+                                <div class="dropdown-link" onclick="productDetail(1000)">Fish Fingers(500 gram)</div>
+                                <div class="dropdown-link" onclick="productDetail(1003)">Shelled Prawns</div>
+                                </div>
+                            </div>                        
+                            <div id="node" class="dropdown-link">Milk Products
+                                <div class="dropdown-second" style="top: 10px;">
+                                <div class="dropdown-link" onclick="productDetail(1004)">Tub Ice Cream(1 litre)</div>
+                                <div class="dropdown-link" onclick="productDetail(1005)">Tub Ice Cream(2 litre)</div>
+                                </div>
+                            </div> 
+                            <div id="node" class="dropdown-link">Other
+                                <div class="dropdown-second" style="top: 90px;">
+                                <div class="dropdown-link" onclick="productDetail(1002)">Hamburger Patties</div>
+                                </div>
+                            </div>                   
+                        </div>
+                    </div> 
+                    
+                    <div class="nav-links">
+                        <div class="nav-link">Fresh Food</div>
+                        <div class="dropdown-first">
+                            <div id="node" class="dropdown-link" onclick="productDetail(3002)">T'Bone Steak</div>
+                            <div id="node" class="dropdown-link">Cheddar Cheese
+                                <div class="dropdown-second" style="top: 30px;">
+                                <div class="dropdown-link" onclick="productDetail(3000)">500 gram</div>
+                                <div class="dropdown-link" onclick="productDetail(3001)">1000 gram</div>
+                                </div>
+                            </div>
+                            <div id="node" class="dropdown-link" onclick="productDetail(3003)">Navel Oranges</div>
+                            <div id="node" class="dropdown-link" onclick="productDetail(3004)">Bananas</div>
+                            <div id="node" class="dropdown-link" onclick="productDetail(3006)">Grapes</div>
+                            <div id="node" class="dropdown-link" onclick="productDetail(3007)">Apple</div>
+                            <div id="node" class="dropdown-link" onclick="productDetail(3005)">Peaches</div>
+                        </div>
+                    </div> 
+                    
+                    <div class="nav-links">
+                        <div class="nav-link">Beverages</div>
+                        <div class="dropdown-first">
+                            <div id="node" class="dropdown-link">Coffee
+                                <div class="dropdown-second" style="top: 0px;">
+                                <div class="dropdown-link" onclick="productDetail(4003)">200 gram</div>
+                                <div class="dropdown-link" onclick="productDetail(4004)">500 gram</div>
+                                </div>
+                            </div>
+                            <div id="node" class="dropdown-link">Earl Grey Tea Bags
+                                <div class="dropdown-second" style="top: 20px;">
+                                <div class="dropdown-link" onclick="productDetail(4000)">Pack 25</div>
+                                <div class="dropdown-link" onclick="productDetail(4001)">Pack 100</div>
+                                <div class="dropdown-link" onclick="productDetail(4002)">Pack 200</div>
+                                </div>
+                            </div>
+                            <div id="node" class="dropdown-link" onclick="productDetail(4005)">Chocolate Bar</div>
+                        </div>
+                    </div> 
+                    
+                    <div class="nav-links">
+                        <div class="nav-link">Home Health</div>
+                        <div class="dropdown-first">
+                            <div id="node" class="dropdown-link" onclick="productDetail(2002)">Bath Soap</div>
+                            <div id="node" class="dropdown-link">Panadol
+                                <div class="dropdown-second" style="top: 20px;">
+                                <div class="dropdown-link" onclick="productDetail(2000)">Pack 24</div>
+                                <div class="dropdown-link" onclick="productDetail(2001)">Bottle 50</div>
+                                </div>
+                            </div>
+                            <div id="node" class="dropdown-link" onclick="productDetail(2005)">Washing Powder</div>
+                            <div id="node" class="dropdown-link">Garbage Bags
+                                <div class="dropdown-second" style="top: 140px;">
+                                <div class="dropdown-link" onclick="productDetail(2003)">Small (10 Pack)</div>
+                                <div class="dropdown-link" onclick="productDetail(2004)">Large (50 Pack)</div>
+                                </div>
+                            </div>
+                            <div id="node" class="dropdown-link" onclick="productDetail(2006)">Laundry Bleach</div>
+                        </div>
+                    </div>
+                    
+                    <div class="nav-links">
+                        <div class="nav-link">Pet Food</div>
+                        <div class="dropdown-first">
+                            <div id="node" class="dropdown-link" onclick="productDetail(5002)">Bird Food</div>
+                            <div id="node" class="dropdown-link" onclick="productDetail(5003)">Cat Food</div>
+                            <div id="node" class="dropdown-link">Dry Dog Food
+                                <div class="dropdown-second" style="top: 75px;">
+                                <div class="dropdown-link" onclick="productDetail(5001)">1 kg pack</div>
+                                <div class="dropdown-link" onclick="productDetail(5000)">5 kg pack</div>
+                                </div>
+                            </div>
+                            <div id="node" class="dropdown-link" onclick="productDetail(5004)">Fish Food</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="top-right">
+               <h2>Product Details</h2>
+               <div class="product-details-list">
+                    <div id="product-inform"></div>
+               </div>
+            </div>
+            
+            <div class="bottom-right">
+                <h2>Shopping Cart</h2>
+                <iframe id="Cart" name="shopcart" src="/ass1/shoppingCart.php" frameborder="0" width="450" height="400" scrolling="yes"></iframe>
+            </div>
+        </div>
+    </body>
+</html>
